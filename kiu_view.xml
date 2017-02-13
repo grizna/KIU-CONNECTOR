@@ -1,0 +1,530 @@
+<?xml version="1.0"?>
+<openerp>
+<data> 
+   
+   <!-- Tabla kiu -->
+    <record model="ir.ui.view" id="kiu_form">
+        <field name="name">kiu.form</field>
+            <field name="model">kiu</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Diario de la empresa">
+
+
+		  <separator/>
+		  <newline/>
+		  <group  string="Informacion General:" colspan="4" >
+		    
+		    
+		    <newline/>
+
+                    <field name="name"/>
+                    <field name="fecha_archivo"/>
+                    <field name="numero_tkt"/>
+                    <field name="pnr_localizador"/>                
+                    <field name="IssueCode"/>
+                    <field name="k_in_cmas"/>
+                    <field name="tipo_pasajero"/>            
+                    <field name="numero_Boleto"/>
+                    <field name="motivo_facturacion_codigo"/>
+                    <field name="pasajero_principal"/>                 
+                    <field name="code_emisor"/>
+                    <field name="numero_motivos"/>
+                    <field name="pnr_ids"/>
+                    <field name="total_calculado_REAL"/>
+                    <field name="total_real_REAL"/>
+                    
+
+
+
+		    
+		 </group >
+		    
+		    <separator/>
+		    <newline/>
+		    <notebook colspan="12">
+
+			    <page  string="Estudios Relizados:">
+			    
+				
+			    </page >
+			    
+			    <page  string="Cursos Realizados:" >
+			     
+				
+			    </page >
+
+	           </notebook>
+
+                </form>
+          </field>
+    </record>
+    <record model="ir.ui.view" id="kiu_tree">
+        <field name="name">kiu.tree</field>
+        <field name="model">kiu</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+                        
+
+            <tree string="Otras Cosas" colors="  red:total_real_REAL and (total_real_REAL!=total_calculado_REAL); blue:total_real_REAL and (total_real_REAL==total_calculado_REAL);" >
+                        <field name="name"/>
+                        <field name="total_calculado_REAL"/>
+                        <field name="total_real_REAL"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="kiu_search">
+        <field name="name">kiu.search</field>
+        <field name="model">kiu</field>
+        <field name="type">search</field>
+        <field name="arch" type="xml">
+            <search string="Otras Cosas" >
+
+                    <field name="name"/>
+		    <field name="total_calculado_REAL"/>
+                    <field name="total_real_REAL"/>
+
+
+            </search>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_kiu_seq">
+        <field name="name">kius</field>
+        <field name="res_model">kiu</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="menu_kiu_module" name="kius"/>
+    <menuitem id="menu_kiu_tables" name="kius" parent="menu_kiu_module"/>
+    <menuitem id="kiu1" parent="menu_kiu_tables" name="kius" action="action_kiu_seq"/>
+
+    
+    
+    
+        <!-- Vista Reportes o Curriculums -->
+    <record model="ir.ui.view" id="info_kiu_form">
+        <field name="name">info_kiu.form</field>
+            <field name="model">info_kiu</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="info_kiu">
+                    
+		  
+        
+		    <group string="info_kiu" colspan="2">
+                        <field name="name"/>
+                        <field name="sumatoria_desglosados"/>
+                        <field name="monto_de_otros_TAX"/>
+                        <field name="total_calculado"/>
+                        <field name="total_real"/>
+                        <field name="monto_tax_2"/>
+                        <field name="monto_tax_1"/>
+                        <field name="monto_en_moneda"/>
+                        <field name="total_CMAS"/>
+                        <field name="monto_6A" attrs="{'invisible': [('monto_6A', '=', 0.00)]}"/>
+                        <field name="monto_AJ"  attrs="{'invisible': [('monto_AJ', '=', 0.00)]}"/>
+                        <field name="monto_AK"  attrs="{'invisible': [('monto_AK', '=', 0.00)]}"/>
+                        <field name="monto_AY"  attrs="{'invisible': [('monto_AY', '=', 0.00)]}"/>
+                        <field name="monto_US"  attrs="{'invisible': [('monto_US', '=', 0.00)]}"/>
+                        <field name="monto_EU"  attrs="{'invisible': [('monto_EU', '=', 0.00)]}"/>
+                        <field name="monto_VJ"  attrs="{'invisible': [('monto_VJ', '=', 0.00)]}"/>
+                        <field name="monto_XA"  attrs="{'invisible': [('monto_XA', '=', 0.00)]}"/>
+                        <field name="monto_XY"  attrs="{'invisible': [('monto_XY', '=', 0.00)]}"/>
+                        <field name="monto_YC"  attrs="{'invisible': [('monto_YC', '=', 0.00)]}"/>
+                        <field name="monto_XF"  attrs="{'invisible': [('monto_XF', '=', 0.00)]}"/>
+                        <field name="monto_YQ"  attrs="{'invisible': [('monto_YQ', '=', 0.00)]}"/>
+                        <field name="monto_YN"  attrs="{'invisible': [('monto_YN', '=', 0.00)]}"/>
+                        <field name="monto_QC"  attrs="{'invisible': [('monto_QC', '=', 0.00)]}"/>
+
+
+                                                                                                                 
+                    </group>
+		    <group string="info_kiu" colspan="2">
+
+                    </group>
+
+                </form>
+          </field>
+    </record>
+    
+    
+
+     <record model="ir.ui.view" id="info_kiu_tree">
+        <field name="name">info_kiu.tree</field>
+        <field name="model">info_kiu</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="Otras Cosas" colors="  red:total_real and (total_real!=total_calculado); blue:total_real and (total_real==total_calculado) ;">
+                        <field name="name"/>
+                        <field name="total_calculado"/>
+                        <field name="total_real"/>
+                        <field name="total_CMAS"/>
+
+
+            </tree>
+        </field>
+    </record>
+   
+    
+    
+   
+    <record model="ir.actions.act_window" id="action_info_kiu_seq">
+        <field name="name">info_kiu</field>
+        <field name="res_model">info_kiu</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="info_kiu" parent="menu_kiu_tables" name="Gestion info_kiu" action="action_info_kiu_seq"/>
+
+   <!-- Tabla cintas_cat -->
+    <record model="ir.ui.view" id="cintas_cat_form">
+        <field name="name">cintas_cat.form</field>
+            <field name="model">cintas_cat</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Diario de la empresa">
+
+
+                  <separator/>
+                  <newline/>
+                  <group  string="Informacion General:" colspan="4" >
+                    
+                    
+                    <newline/>
+
+                    <field name="name"/>
+                    <field name="fecha_archivo"/>
+                    <field name="numero_tkt"/>
+                    <field name="pnr_localizador"/>                
+                    <field name="IssueCode"/>
+                    <field name="k_in_cat"/>
+                    <field name="tipo_pasajero"/>            
+                    <field name="numero_Boleto"/>
+                    <field name="motivo_facturacion_codigo"/>
+                    <field name="pasajero_principal"/>                 
+                    <field name="code_emisor"/>
+                    <field name="numero_motivos"/>
+                    <field name="boleto_ids"/>
+                    <field name="total_calculado_REAL"/>
+                    <field name="total_real_REAL"/>
+                    
+
+
+
+                    
+                 </group >
+                    
+                    <separator/>
+                    <newline/>
+                    <notebook colspan="12">
+
+                            <page  string="Estudios Relizados:">
+                            
+                                
+                            </page >
+                            
+                            <page  string="Cursos Realizados:" >
+                             
+                                
+                            </page >
+
+                   </notebook>
+
+                </form>
+          </field>
+    </record>
+    <record model="ir.ui.view" id="cintas_cat_tree">
+        <field name="name">cintas_cat.tree</field>
+        <field name="model">cintas_cat</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+                        
+
+            <tree string="Otras Cosas" colors="  red:total_real_REAL and (total_real_REAL!=total_calculado_REAL); blue:total_real_REAL and (total_real_REAL==total_calculado_REAL);" >
+                        <field name="name"/>
+                        <field name="total_calculado_REAL"/>
+                        <field name="total_real_REAL"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="cintas_cat_search">
+        <field name="name">cintas_cat.search</field>
+        <field name="model">cintas_cat</field>
+        <field name="type">search</field>
+        <field name="arch" type="xml">
+            <search string="Otras Cosas" >
+
+                    <field name="name"/>
+                    <field name="total_calculado_REAL"/>
+                    <field name="total_real_REAL"/>
+
+
+            </search>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_cintas_cat_seq">
+        <field name="name">cintas_cats</field>
+        <field name="res_model">cintas_cat</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="menu_cintas_cat_module" name="cintas_cats"/>
+    <menuitem id="menu_cintas_cat_tables" name="cintas_cats" parent="menu_cintas_cat_module"/>
+    <menuitem id="cintas_cat1" parent="menu_cintas_cat_tables" name="cintas_cats" action="action_cintas_cat_seq"/>
+
+    
+    
+    
+        <!-- Vista Reportes o Curriculums -->
+    <record model="ir.ui.view" id="info_cintas_cat_form">
+        <field name="name">info_cintas_cat.form</field>
+            <field name="model">info_cintas_cat</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="info_cintas_cat">
+                    
+                  
+        
+                    <group string="info_cintas_cat" colspan="2">
+                        <field name="name"/>
+                        <field name="pasajero"/>
+                        <field name="tipo_pasajero"/>
+                        
+                        
+                        <field name="monto_en_moneda"/>
+                        <field name="total_calculado"/>
+                        <field name="total_real"/>
+                        <field name="monto_tax_2"/>
+                        <field name="monto_tax_1"/>
+                        <field name="monto_en_moneda"/>
+                        <field name="total_CAT"/>
+
+                        <field name="amount_YQ" attrs="{'invisible': [('amount_YQ', '=', 0.00)]}"/>
+                        <field name="amount_YC" attrs="{'invisible': [('amount_YC', '=', 0.00)]}"/>
+                        <field name="amount_US" attrs="{'invisible': [('amount_US', '=', 0.00)]}"/>
+                        <field name="amount_XA" attrs="{'invisible': [('amount_XA', '=', 0.00)]}"/>
+                        <field name="amount_XY" attrs="{'invisible': [('amount_XY', '=', 0.00)]}"/>
+                        <field name="amount_AW" attrs="{'invisible': [('amount_AW', '=', 0.00)]}"/>
+                        <field name="amount_VJ" attrs="{'invisible': [('amount_VJ', '=', 0.00)]}"/>
+                        <field name="amount_EU" attrs="{'invisible': [('amount_EU', '=', 0.00)]}"/>
+                        <field name="amount_YR" attrs="{'invisible': [('amount_YR', '=', 0.00)]}"/>
+                        <field name="amount_XF" attrs="{'invisible': [('amount_XF', '=', 0.00)]}"/>
+                        <field name="amount_AY" attrs="{'invisible': [('amount_AY', '=', 0.00)]}"/>
+                        <field name="amount_AJ" attrs="{'invisible': [('amount_AJ', '=', 0.00)]}"/>
+                        <field name="amount_YN" attrs="{'invisible': [('amount_YN', '=', 0.00)]}"/>
+                        <field name="amount_AK" attrs="{'invisible': [('amount_AK', '=', 0.00)]}"/>
+                        <field name="amount_QC" attrs="{'invisible': [('amount_QC', '=', 0.00)]}"/>
+                                                                                                                  
+
+                    </group>
+
+                </form>
+          </field>
+    </record>
+    
+    
+
+     <record model="ir.ui.view" id="info_cintas_cat_tree">
+        <field name="name">info_cintas_cat.tree</field>
+        <field name="model">info_cintas_cat</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="Otras Cosas" colors="  red:total_real and (total_real!=total_calculado); blue:total_real and (total_real==total_calculado) ;">
+                        <field name="name"/>
+                        <field name="total_calculado"/>
+                        <field name="total_real"/>
+                        <field name="total_CAT"/>
+
+
+            </tree>
+        </field>
+    </record>
+   
+    
+    
+   
+    <record model="ir.actions.act_window" id="action_info_cintas_cat_seq">
+        <field name="name">info_cintas_cat</field>
+        <field name="res_model">info_cintas_cat</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="info_cintas_cat" parent="menu_cintas_cat_tables" name="Gestion info_cintas_cat" action="action_info_cintas_cat_seq"/>
+
+    
+    
+    
+    
+       <!-- Tabla cintas_cat -->
+    <record model="ir.ui.view" id="volados_form">
+        <field name="name">volados.form</field>
+            <field name="model">volados</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Diario de la empresa">
+
+
+                  <separator/>
+                  <newline/>
+                  <group  string="Informacion General:" colspan="4" >
+                    
+                    
+                    <newline/>
+
+                    <field name="name"/>
+                    <field name="Date_of_Processing"/>
+                    <field name="Record_Indicator"/>
+                    <field name="Version"/>                
+                    <field name="Amount_of_Flight_Coupon_total"/>                
+                    <field name="boleto_ids"/>                
+                    
+
+
+                    
+                 </group >
+                    
+                    <separator/>
+                    <newline/>
+                    <notebook colspan="12">
+
+                            <page  string="Estudios Relizados:">
+                            
+                                
+                            </page >
+                            
+                            <page  string="Cursos Realizados:" >
+                             
+                                
+                            </page >
+
+                   </notebook>
+
+                </form>
+          </field>
+    </record>
+    <record model="ir.ui.view" id="volados_tree">
+        <field name="name">volados.tree</field>
+        <field name="model">volados</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+                        
+
+            <tree string="Otras Cosas"  >
+                        
+                    <field name="name"/>
+                    <field name="Date_of_Processing"/>
+                    <field name="Record_Indicator"/>
+                    <field name="Version"/>            
+            </tree>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="volados_search">
+        <field name="name">volados.search</field>
+        <field name="model">volados</field>
+        <field name="type">search</field>
+        <field name="arch" type="xml">
+            <search string="Otras Cosas" >
+
+                    <field name="name"/>
+                    <field name="Date_of_Processing"/>
+                    <field name="Record_Indicator"/>
+                    <field name="Version"/>            
+
+
+            </search>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_volados_seq">
+        <field name="name">voladoss</field>
+        <field name="res_model">volados</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="menu_volados_module" name="voladoss"/>
+    <menuitem id="menu_volados_tables" name="voladoss" parent="menu_volados_module"/>
+    <menuitem id="volados1" parent="menu_volados_tables" name="voladoss" action="action_volados_seq"/>
+
+    
+    
+    
+        <!-- Vista Reportes o Curriculums -->
+    <record model="ir.ui.view" id="info_volados_form">
+        <field name="name">info_volados.form</field>
+            <field name="model">info_volados</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="info_volados">
+                    
+                  
+        
+                    <group string="info_volados" colspan="2">
+                        <field name="name"/>
+                        <field name="Record_Indicator"/>
+                        <field name="Flight_Number"/>
+                        
+                        
+                        <field name="Origin"/>
+                        <field name="Destination"/>
+                        <field name="Type_of_Ticket"/>
+                        <field name="Ticket_Number"/>
+                        <field name="Coupon_Number"/>
+                        <field name="Type_of_Passenger"/>
+                        <field name="Name_of_Passenger"/>
+
+                        <field name="Passenger_Identification_FOID"/>
+                        <field name="Passenger_Frequent_Flyer_Number"/>
+                        <field name="Reservation_Booking_Designator"/>
+                        <field name="Fare_Basis"/>
+                        <field name="Currency"/>
+                        <field name="Record_Locator"/>
+                        <field name="Marketing_Flight_Number_2"/>
+                        <field name="Number_of_Checked_in_Baggage"/>
+                        <field name="Weight_of_Checked_in_Baggage"/>
+                        <field name="Detail_of_Bag_Tag_3"/>
+                        <field name="Amount_of_Flight_Coupon"/>                                
+
+    
+    
+    
+                        
+                    </group>
+
+                </form>
+          </field>
+    </record>
+    
+    
+
+     <record model="ir.ui.view" id="info_volados_tree">
+        <field name="name">info_volados.tree</field>
+        <field name="model">info_volados</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="Otras Cosas">
+                        <field name="Name_of_Passenger"/>
+                        <field name="Flight_Number"/>
+                        <field name="Amount_of_Flight_Coupon"/>
+
+
+            </tree>
+        </field>
+    </record>
+   
+    
+    
+   
+    <record model="ir.actions.act_window" id="action_info_volados_seq">
+        <field name="name">info_volados</field>
+        <field name="res_model">info_volados</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="info_volados" parent="menu_volados_tables" name="Gestion info_volados" action="action_info_volados_seq"/>
+
+    
+</data>
+</openerp>
+
+    

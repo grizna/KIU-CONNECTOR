@@ -1,0 +1,44 @@
+
+
+PASOS a seguir para la integracion de KIU con ODOO
+
+1 paso
+
+Cree el usuario odoo, si ya esta creado compruebe que es el usuario que manipula el sistema de ODOO,
+de no ser asi debe modificar algunas cosas de aministracion en el sistema, esta gui esta pensada para que el usuario
+sea odoo y el que aparece en el script de /etc/init.d/odoo-server sean el mismo de no ser asi debera poner el nombre de 
+usuario que ha elegido donde aparezca odoo, principalmente en el archivo mi_modulo.py en la linea donde coloca carpeta de usuario y
+en los permisos de usuario.
+
+2 paso
+
+una ves creado un directorio ya sea con el usuario odoo u otro debe crear un conjunto de directorios para que funcione,
+este archivo lo vamos a llamar archivo usuario y sera asi:
+
+archivo_usuario = /home/odoo/archivos_kiu/
+
+Previamente debemos crear el directorio archivos_kiu: 
+
+# mkdir archivos_kiu
+
+3 paso crear todas las carpetas en el archivo_usuario, debemos estar en /home/odoo/archivos_kiu:
+
+# mkdir CRS_descomprimidos CRS_comprimidos  CRS_correctamente_procesado  
+# mkdir CAT_descomprimidos CAT_comprimidos CAT_correctamente_procesado
+# mkdir FLT_comprimidos FLT_descomprimidos FLT_correctamente_procesado
+# mkdir  archivos_comprimidos_TID archivos_descomprimidos_TID archivos_procesados archivos_en_0
+
+
+Luego de esto damos permisos y verificamos el dueño:
+
+# chown odoo odoo/ -R
+# chmod 755  odoo/ -R
+
+
+Nota IMPORTANTE: Ya luego lo que necesitamos hacer es que FTP o donde lleguen los archivos sea el directorio archivo_usuario
+
+4 Paso
+
+Teniendo en cuenta esto ahora podemos instalar el modulo kiu_ingrator, debemos tener isntalado el modulo de finanzas aunque no es  una dependencia
+
+5 Paso una VEs instalado el modulo ya esta funcionando con 5 tareas importantes que he agregado

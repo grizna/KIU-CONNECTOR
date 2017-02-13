@@ -1,0 +1,20 @@
+
+
+Detalles Del Modulo
+
+El modulo extrae los datos segun algunos archivos que llegara a una carpeta especificada en el archivo metodo_para_integrar_kiu.txt
+
+El modulo esta funcionando bien y creo que segun el requerimiento no necesita nada mas por ahora que hace el modulo:
+
+1 Extrae los ZIP y los manda a carpetas diferentes donde ay otras rutinas esperando que lleguen los archivos por ejemplo CRS, CAT y FLT
+
+2 el CRS y CAT hacen lo mismo pero sobre diferentes archivos pero la mecanica es comun, paso a describirla:
+    pasos: extraer los datos del archivo, pasajero, tipo, montos de los impuestos y montos equivfarem, luego compara el monto total con el del boleto
+    Si el TOTAL_CMAS es igual a el TOTAL_CALCULADO el sistema crea la factura borrador, si no es asi el modulo deja en ROJO
+    los archivos que no estan correctamente totalizados, asi que el usuario puede modificar algun dato a mano y asi el sistema crea la Factura Borrador
+    para mi es bastante simple y facil de usar, segun pienso
+
+3 Los Volados simplemente LLega el archivo es descomprimido y leido, el siguiente paso es tomar el total y moverlo de una cuenta a otra con un 
+movimiento de diario o asiento manual, el sistema lo ahce automaticamente
+
+Nota: De ser necesario escribeme a cesaraugusto000@gmail.com y puedo adaptar o arrelgar algun error... Saludos
